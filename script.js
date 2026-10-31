@@ -579,12 +579,66 @@ function mostrarEleccion(equipo, celebrar) {
   $('vestTuyo').textContent = eq.vest;
   $('vestTuyo').classList.remove('oculto');
 
+  desbloquear();
+
   if (celebrar) {
     lanzarGlobos(eq);
     lanzarConfeti(eq.colores);
-    setTimeout(() => ll.scrollIntoView({ behavior: 'smooth', block: 'center' }), 900);
+    setTimeout(() => {
+      ll.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Aro dorado que da 3 vueltas alrededor del recuadro
+      ll.classList.remove('destacar');
+      void ll.offsetWidth;
+      setTimeout(() => ll.classList.add('destacar'), 500);
+    }, 900);
   }
 }
+
+/* ---------- Bloqueo: deben elegir team para seguir ---------- */
+let bloqueado = true;
+let avisoTimer = null;
+
+function desbloquear() {
+  if (!bloqueado) return;
+  bloqueado = false;
+  $('contenidoBloqueado').classList.remove('bloqueado');
+  $('avisoElegir').classList.remove('visible');
+  // las secciones nuevas aparecen con el efecto de scroll
+  if (typeof activarRevelado === 'function') setTimeout(activarRevelado, 50);
+}
+
+function avisarElegir() {
+  if (!bloqueado || !document.body.classList.contains('puede-scroll')) return;
+  const aviso = $('avisoElegir');
+  aviso.classList.add('visible');
+  const eq = $('equipos');
+  eq.classList.remove('llamar'); void eq.offsetWidth; eq.classList.add('llamar');
+  clearTimeout(avisoTimer);
+  avisoTimer = setTimeout(() => aviso.classList.remove('visible'), 2800);
+}
+
+function alFinal() {
+  return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 30;
+}
+// Rueda del mouse / trackpad
+window.addEventListener('wheel', (e) => { if (bloqueado && e.deltaY > 0 && alFinal()) avisarElegir(); }, { passive: true });
+// Dedo en el celular
+let toqueY = null;
+window.addEventListener('touchstart', (e) => { toqueY = e.touches[0].clientY; }, { passive: true });
+window.addEventListener('touchmove', (e) => {
+  if (!bloqueado || toqueY === null) return;
+  if (toqueY - e.touches[0].clientY > 30 && alFinal()) { avisarElegir(); toqueY = e.touches[0].clientY; }
+}, { passive: true });
+// Teclado
+window.addEventListener('keydown', (e) => {
+  if (bloqueado && ['ArrowDown', 'PageDown', ' ', 'End'].includes(e.key) && alFinal()) avisarElegir();
+});
+// Al llegar al final (por si el navegador no manda los eventos de arriba)
+let yaAviso = false;
+window.addEventListener('scroll', () => {
+  if (bloqueado && alFinal() && !yaAviso) { yaAviso = true; avisarElegir(); }
+  if (!alFinal()) yaAviso = false;
+}, { passive: true });
 
 function restaurarVoto() {
   const v = leer(claveInvitado('voto'));
