@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es" class="js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Revelación de Género · Baby Rodríguez Díaz</title>
+  <meta name="description" content="Estás invitado a la revelación de género de Baby Rodríguez Díaz. ¿Niño o niña?">
+  <meta name="theme-color" content="#f4efe6">
+
+  <!-- Vista previa al compartir el link (cambia la URL si el repo tiene otro nombre) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Revelación de Género · Baby Rodríguez Díaz">
+  <meta property="og:description" content="Pronto sabremos lo que soy… ¡y quiero que estés ahí!">
+  <meta property="og:image" content="https://invitavale.com/Revelacion-Baby-Rodriguez-Diaz/assets/portada-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <link rel="preload" href="assets/intro.mp4" as="video" type="video/mp4">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- Música (se activa con el primer toque) -->
+  <audio id="musica" src="assets/a-thousand-years.mp3" preload="auto" loop></audio>
+
+  <!-- ============ ESCENA 1: SOBRE (video) + CARTA ============ -->
+  <section id="escenaSobre" class="escena activa" aria-label="Abrir invitación">
+    <div class="fondo-difuso" aria-hidden="true"></div>
+
+    <div class="marco-video">
+      <video id="videoSobre" src="assets/intro.mp4" poster="assets/intro-inicio.jpg"
+             muted playsinline webkit-playsinline preload="auto"></video>
+
+      <!-- Botón inicial sobre el sello -->
+      <button id="btnAbrir" class="btn-abrir" type="button" aria-label="Toca para abrir la invitación">
+        <span class="anillo"></span><span class="anillo r2"></span>
+      </button>
+      <p id="pistaAbrir" class="pista-abrir">Toca el sello para abrir</p>
+
+      <!-- Polvo mágico que sale del sello -->
+      <div id="polvo" class="polvo" aria-hidden="true"></div>
+
+      <!-- Contenido que se escribe dentro de la carta -->
+      <div id="carta" class="carta" aria-live="polite">
+
+        <!-- Paso 1: ¿Familia o amigo? -->
+        <div id="pasoTipo" class="paso">
+          <p class="carta-eyebrow">Tienes una</p>
+          <h1 class="carta-titulo">Invitación</h1>
+          <p class="carta-sub">muy especial esperándote</p>
+          <span class="carta-linea"></span>
+          <p class="carta-pregunta">Antes de entrar, cuéntanos…<br><em>¿quién eres para nosotros?</em></p>
+
+          <div class="opciones">
+            <button class="opcion opcion-familia" data-tipo="familia" type="button">
+              <img src="assets/icono-familia.png" alt="" aria-hidden="true">
+              <span>Soy familia</span>
+            </button>
+            <button class="opcion opcion-amigo" data-tipo="amigo" type="button">
+              <img src="assets/icono-amigo.png" alt="" aria-hidden="true">
+              <span>Soy amigo(a)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Paso 2: Selecciona tu nombre -->
+        <div id="pasoNombre" class="paso oculto">
+          <p class="carta-eyebrow" id="saludoTipo">¡Qué alegría!</p>
+          <h2 class="carta-titulo carta-titulo-sm">¿Quién eres?</h2>
+          <p class="carta-sub">Busca y selecciona tu nombre para entrar</p>
+
+          <label class="buscador">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="buscarNombre" type="search" placeholder="Escribe tu nombre…" autocomplete="off" aria-label="Buscar tu nombre">
+          </label>
+
+          <ul id="listaNombres" class="lista-nombres" role="listbox" aria-label="Lista de invitados"></ul>
+          <p id="sinResultados" class="sin-resultados oculto">No encontramos ese nombre 🤍</p>
+
+          <button id="btnVolver" class="btn-volver" type="button">← Volver</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ESCENA 2: BIENVENIDA ============ -->
+  <section id="escenaBienvenida" class="escena" aria-label="Bienvenida">
+    <div class="velo"></div>
+    <div class="destellos" id="destellos" aria-hidden="true"></div>
+    <div class="globos" aria-hidden="true">
+      <span class="globo azul g1"></span><span class="globo rosa g2"></span>
+      <span class="globo azul g3"></span><span class="globo rosa g4"></span>
+      <span class="globo rosa g5"></span><span class="globo azul g6"></span>
+    </div>
+
+    <div class="bienvenida-texto">
+      <p class="bv-nombre" id="bvNombre"></p>
+      <p class="bv-miembros oculto" id="bvMiembros"></p>
+      <h2 class="bv-titulo" id="bvTitulo">Bienvenido a mi revelación</h2>
+      <p class="bv-frase" id="bvFrase">pronto sabré lo que soy…</p>
+      <div class="bv-firma">
+        <span class="corazon-azul">♥</span>
+        <p class="bv-baby">Baby Rodríguez Díaz</p>
+        <span class="corazon-rosa">♥</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ESCENA 3: INVITACIÓN ============ -->
+  <main id="invitacion" class="invitacion" aria-label="Invitación">
+
+    <!-- ---------- PORTADA ---------- -->
+    <section class="portada">
+      <img class="deco deco-1" src="assets/globos/estrella-azul.webp" alt="" aria-hidden="true">
+      <img class="deco deco-2" src="assets/globos/corazon-rosa.webp" alt="" aria-hidden="true">
+      <img class="deco deco-3" src="assets/globos/confeti-azul.webp" alt="" aria-hidden="true">
+      <img class="deco deco-4" src="assets/globos/rosa.webp" alt="" aria-hidden="true">
+
+      <div class="portada-contenido">
+        <p class="portada-hola"><span id="portadaHolaPre">Querido(a)</span> <strong id="nombreInvitado"></strong></p>
+        <p class="portada-miembros oculto" id="portadaMiembros"></p>
+        <p class="eyebrow">¡Estás invitado!</p>
+        <h1 class="portada-titulo">Gender <span>Reveal</span></h1>
+        <p class="portada-texto">
+          Ven a compartir este momento tan especial y descubre si nuestro bebé llegará vestido de
+          <span class="t-azul">azul</span> o de <span class="t-rosa">rosa</span>.
+        </p>
+
+        <div class="fecha-portada" aria-label="Domingo 22 de noviembre de 2026">
+          <span class="fp-lado">Domingo</span>
+          <span class="fp-dia">22</span>
+          <span class="fp-lado">Noviembre</span>
+        </div>
+        <p class="fp-anio">2026</p>
+        <p class="portada-baby">Baby Rodríguez Díaz</p>
+      </div>
+      <a href="#conteo" class="bajar" aria-label="Ver más">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
+    </section>
+
+    <!-- ---------- CONTEO REGRESIVO ---------- -->
+    <section id="conteo" class="seccion rev">
+      <p class="eyebrow">Falta muy poco</p>
+      <h2 class="titulo-seccion">Cuenta regresiva</h2>
+      <div class="conteo" id="conteoCaja">
+        <div class="c-item"><span class="c-num" id="cDias">00</span><span class="c-lbl">Días</span></div>
+        <div class="c-item"><span class="c-num" id="cHoras">00</span><span class="c-lbl">Horas</span></div>
+        <div class="c-item"><span class="c-num" id="cMin">00</span><span class="c-lbl">Minutos</span></div>
+        <div class="c-item"><span class="c-num" id="cSeg">00</span><span class="c-lbl">Segundos</span></div>
+      </div>
+      <p class="conteo-fin oculto" id="conteoFin">¡Hoy es el gran día! 💙💗</p>
+    </section>
+
+    <!-- ---------- DETALLES ---------- -->
+    <section class="seccion rev">
+      <p class="eyebrow">Te esperamos</p>
+      <h2 class="titulo-seccion">Detalles del evento</h2>
+
+      <div class="detalles">
+        <article class="detalle">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>
+          <h3>Fecha</h3>
+          <p class="d-grande">Domingo</p>
+          <p>22 de noviembre de 2026</p>
+        </article>
+        <article class="detalle">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+          <h3>Hora</h3>
+          <p class="d-grande">5:30 p. m.</p>
+          <p>Hora de llegada</p>
+        </article>
+        <article class="detalle detalle-ancho">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg>
+          <h3>Lugar</h3>
+          <p class="d-grande" id="lugarNombre">Por anunciar</p>
+          <p id="lugarDireccion">La ubicación del evento se compartirá muy pronto.</p>
+          <a id="lugarMapa" class="btn btn-linea oculto" href="#" target="_blank" rel="noopener">Ver ubicación</a>
+        </article>
+      </div>
+
+      <a class="btn btn-linea" id="btnCalendario" target="_blank" rel="noopener"
+         href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Revelaci%C3%B3n%20de%20G%C3%A9nero%20%C2%B7%20Baby%20Rodr%C3%ADguez%20D%C3%ADaz&dates=20261122T213000Z/20261123T013000Z&details=%C2%BFNi%C3%B1o%20o%20ni%C3%B1a%3F%20%C2%A1Ven%20a%20descubrirlo%20con%20nosotros!">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4M12 12.5v5M9.5 15h5"/></svg>
+        Agregar a mi calendario
+      </a>
+    </section>
+
+    <!-- ---------- DINÁMICA: ¿NIÑO O NIÑA? ---------- -->
+    <section id="dinamica" class="seccion seccion-dinamica rev">
+      <p class="eyebrow">Dinámica</p>
+      <h2 class="titulo-seccion">¿Cuál es tu predicción?</h2>
+      <p class="seccion-texto">Elige tu equipo y descubre quién va ganando.</p>
+
+      <div class="equipos" id="equipos">
+        <button class="equipo equipo-nino" data-equipo="nino" type="button">
+          <img src="assets/globos/azul.webp" alt="" aria-hidden="true">
+          <span class="eq-nombre">Team Niño</span>
+          <span class="eq-sub">Creo que es niño</span>
+        </button>
+        <button class="equipo equipo-nina" data-equipo="nina" type="button">
+          <img src="assets/globos/rosa.webp" alt="" aria-hidden="true">
+          <span class="eq-nombre">Team Niña</span>
+          <span class="eq-sub">Creo que es niña</span>
+        </button>
+        <button class="equipo equipo-sorpresa" data-equipo="sorpresa" type="button">
+          <span class="eq-par" aria-hidden="true">
+            <img src="assets/globos/corazon-azul.webp" alt=""><img src="assets/globos/corazon-rosa.webp" alt="">
+          </span>
+          <span class="eq-textos">
+            <span class="eq-nombre">Que Dios nos sorprenda</span>
+            <span class="eq-sub">Lo que venga será bendición</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Marcador -->
+      <div class="marcador oculto" id="marcador" aria-live="polite">
+        <p class="m-lider" id="mLider">Cargando votos…</p>
+        <div class="m-barra" role="img" id="mBarra" aria-label="Votos">
+          <span class="m-azul" id="mAzul" style="width:50%"></span>
+          <span class="m-rosa" id="mRosa" style="width:50%"></span>
+        </div>
+        <div class="m-filas">
+          <span class="m-dato m-dato-azul"><b id="mNino">0</b> Team Niño · <i id="mNinoPct">0%</i></span>
+          <span class="m-dato m-dato-rosa"><i id="mNinaPct">0%</i> · Team Niña <b id="mNina">0</b></span>
+        </div>
+        <p class="m-sorpresa"><b id="mSorpresa">0</b> dejan que Dios sorprenda</p>
+      </div>
+
+      <!-- Qué llevar (aparece al votar) -->
+      <div class="llevar oculto" id="llevar">
+        <p class="eyebrow" id="llevarEquipo">Team Niño</p>
+        <h3 class="llevar-titulo">Tu regalo para el bebé</h3>
+        <div class="llevar-item" id="llevarItem">
+          <span class="llevar-icono" id="llevarIcono"></span>
+          <div>
+            <p class="llevar-que" id="llevarQue">Pampers (pañales)</p>
+            <p class="llevar-nota" id="llevarNota">Si apuestas por niño, trae pañales.</p>
+          </div>
+        </div>
+        <p class="llevar-extra" id="llevarExtra">
+          ✨ Y si dejas que Dios sorprenda, trae un <b>regalito sorpresa en colores neutrales</b>.
+        </p>
+        <button class="btn-texto" id="btnCambiarVoto" type="button">Cambiar mi predicción</button>
+      </div>
+    </section>
+
+    <!-- ---------- CÓDIGO DE VESTIMENTA ---------- -->
+    <section class="seccion rev">
+      <p class="eyebrow">Código de vestimenta</p>
+      <h2 class="titulo-seccion">Viste de blanco</h2>
+      <p class="seccion-texto">y añade un toque de color según tu apuesta</p>
+
+      <div class="vestimenta">
+        <div class="vest vest-nino" data-equipo="nino">
+          <span class="vest-circulo"><span class="vest-toque"></span></span>
+          <p class="vest-nombre">Blanco + azul</p>
+          <p class="vest-sub">si apuestas por niño</p>
+        </div>
+        <div class="vest vest-nina" data-equipo="nina">
+          <span class="vest-circulo"><span class="vest-toque"></span></span>
+          <p class="vest-nombre">Blanco + rosado</p>
+          <p class="vest-sub">si apuestas por niña</p>
+        </div>
+      </div>
+      <p class="vest-tuyo oculto" id="vestTuyo"></p>
+    </section>
+
+    <!-- ---------- CONFIRMAR ASISTENCIA ---------- -->
+    <section id="confirmar" class="seccion rev">
+      <p class="eyebrow">Tu presencia es nuestro mejor regalo</p>
+      <h2 class="titulo-seccion">Confirma tu asistencia</h2>
+
+      <div class="rsvp-simple">
+        <span class="rsvp-icono" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><rect x="7" y="14" width="34" height="24" rx="3"/><path d="m8 16 16 12 16-12"/><path d="M24 11.5s-3.6-2.3-3.6-4.6a1.9 1.9 0 0 1 3.6-.8 1.9 1.9 0 0 1 3.6.8c0 2.3-3.6 4.6-3.6 4.6Z"/></svg>
+        </span>
+        <button class="btn btn-lleno btn-wa" type="button" id="rsvpEnviar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.7L4 20Z"/><path d="M9 9.5c.3 1.6 2 3.6 3.9 4.4.6.3 1.3-.4 1.6-.9l1.3.7c-.1.9-1 1.8-2 1.7-2.7-.3-5.5-3.1-5.8-5.8-.1-1 .8-1.9 1.7-2l.7 1.3c-.5.3-1.2 1-.9 1.6"/></svg>
+          Confirmar asistencia
+        </button>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <p class="pie-firma">Con amor,</p>
+      <p class="portada-baby">Baby Rodríguez Díaz</p>
+      <p class="pie-corazones"><span class="t-azul">♥</span> <span class="t-rosa">♥</span></p>
+    </footer>
+  </main>
+
+  <!-- Capa para globos que suben al votar -->
+  <div class="lluvia-globos" id="lluviaGlobos" aria-hidden="true"></div>
+
+  <!-- Botón flotante de música -->
+  <button id="btnMusica" class="btn-musica" type="button" aria-label="Pausar música">
+    <svg class="ic-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>
+    <svg class="ic-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/><path d="M3 3l18 18"/></svg>
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.3/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
