@@ -404,9 +404,9 @@ const EVENTO = {
   id: 'revelacion-baby-rodriguez-diaz',          // id en Supabase (rsvp_eventos)
   fecha: new Date('2026-11-22T17:30:00-04:00'),   // 5:30 p. m. hora RD
   lugar: {
-    nombre: '',      // ej: 'Salón Las Palmas'
-    direccion: '',   // ej: 'Av. Hermanas Mirabal #123, Villa Mella'
-    mapa: ''         // link de Google Maps
+    nombre: 'Residencial Vista Sol',
+    direccion: 'La Barranquita, edificio 10, apartamento 3A',
+    mapa: 'https://www.google.com/maps/search/?api=1&query=Residencial%20Vista%20Sol%2C%20La%20Barranquita'  // cambia por el pin exacto si lo tienes
   }
 };
 
