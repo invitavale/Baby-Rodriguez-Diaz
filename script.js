@@ -150,6 +150,8 @@ escenaSobre.addEventListener('click', (e) => {
 });
 
 video.addEventListener('timeupdate', () => {
+  // Nombres de los papás: aparecen ~1 s y se van antes de que se abra la carta
+  $('padresVideo').classList.toggle('visible', video.currentTime > 0.9 && video.currentTime < 5.4);
   if (video.duration && video.currentTime >= video.duration - 0.55) mostrarCarta();
 });
 video.addEventListener('ended', mostrarCarta);
@@ -407,7 +409,7 @@ const EVENTO = {
   lugar: {
     nombre: 'Residencial Vista Sol',
     direccion: 'La Barranquita, edificio 10, apartamento 3A',
-    mapa: 'https://www.google.com/maps/search/?api=1&query=Residencial%20Vista%20Sol%2C%20La%20Barranquita'  // cambia por el pin exacto si lo tienes
+    mapa: 'https://maps.app.goo.gl/4Bf6JdVHFJHnMXPm8'
   }
 };
 

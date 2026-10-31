@@ -190,6 +190,40 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(1) rotate(var(--g)); }
 }
 
+/* ---------- Nombres de los papás durante el video ---------- */
+.padres-video {
+  position: absolute;
+  left: 50%; top: 17%;
+  transform: translate(-50%, 10px);
+  z-index: 4;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  width: min(80%, calc(100vw - 40px));
+  text-align: center;
+  opacity: 0;
+  filter: blur(6px);
+  pointer-events: none;
+  transition: opacity 1s ease, transform 1.2s cubic-bezier(.2, .7, .2, 1), filter 1s ease;
+}
+.padres-video.visible { opacity: 1; transform: translate(-50%, 0); filter: blur(0); }
+.pv-eyebrow {
+  font-family: var(--f-sans);
+  font-size: clamp(10px, 1.4vh, 12px);
+  font-weight: 500;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--tinta);
+  text-shadow: 0 0 12px rgba(255, 252, 244, .95), 0 0 4px rgba(255, 252, 244, .9);
+}
+.pv-nombres {
+  font-family: var(--f-script);
+  font-size: min(5.8vh, 10.5vw, 58px);
+  line-height: 1.15;
+  color: var(--dorado-osc);
+  white-space: nowrap;
+  text-shadow: 0 0 18px rgba(255, 252, 244, 1), 0 0 6px rgba(255, 252, 244, .9);
+}
+.pv-nombres em, .pp-nombres em { font-style: normal; font-family: var(--f-serif); font-size: .6em; color: var(--dorado); padding: 0 .1em; }
+
 /* ---------- Contenido dentro de la carta ----------
    Posicionado sobre el espacio en blanco de la carta del video */
 .carta {
@@ -673,6 +707,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   margin-top: 28px;
 }
 
+.portada-padres { display: flex; flex-direction: column; align-items: center; margin-top: 22px; }
+.pp-eyebrow { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--tinta-suave); }
+.pp-nombres { font-family: var(--f-script); font-size: clamp(40px, 11vw, 52px); line-height: 1.15; color: var(--dorado); }
 .deco { position: absolute; z-index: 1; pointer-events: none; height: auto; filter: drop-shadow(0 10px 16px rgba(90, 74, 59, .14)); }
 .deco-1 { width: clamp(84px, 24vw, 140px); top: 4%;  left: -4%;  animation: mecer 6s ease-in-out infinite; }
 .deco-2 { width: clamp(78px, 22vw, 130px); top: 7%;  right: -5%; animation: mecer 7s ease-in-out -2s infinite; }
