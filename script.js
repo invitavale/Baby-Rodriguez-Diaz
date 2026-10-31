@@ -6,24 +6,24 @@
 
 /* ---------- 1. LISTA DE INVITADOS ----------
    pases = cantidad de personas incluidas en la invitación.
-   seccion: 'familias' o 'individuales' (títulos en la lista).
+   seccion: 'familias', grupo: 'familia' o 'individuales' (títulos en la lista).
    miembros: integrantes; al tocar la familia se abre y cada quien elige su nombre. */
 const INVITADOS = [
-  { nombre: 'Familia Antinol',       pases: 4, seccion: 'familias', miembros: ['Doña Dulce', 'Mildred', 'Ruthdeliz', 'Antinol'] },
-  { nombre: 'Familia Kervis',        pases: 4, seccion: 'familias', miembros: ['Iris', 'Keven', 'Kevin', 'Kervis'] },
-  { nombre: 'Christopher y Keiry',   pases: 2, seccion: 'familias' },
-  { nombre: 'Familia Yaritza',       pases: 5, seccion: 'familias', miembros: ['Yaha', 'Ismaylin', 'Darlyn', 'María', 'Yaritza'] },
-  { nombre: 'Familia Juana',         pases: 3, seccion: 'familias', miembros: ['Wilman', 'Yerlenis', 'Juana'] },
-  { nombre: 'William y Lidia',       pases: 2, seccion: 'familias' },
-  { nombre: 'Omell',                 pases: 1, seccion: 'familias' },
+  { nombre: 'Familia Antinol',       pases: 4, seccion: 'familias', grupo: 'familia', miembros: ['Doña Dulce', 'Mildred', 'Ruthdeliz', 'Antinol'] },
+  { nombre: 'Familia Kervis',        pases: 4, seccion: 'familias', grupo: 'familia', miembros: ['Iris', 'Keven', 'Kevin', 'Kervis'] },
+  { nombre: 'Christopher y Keiry',   pases: 2, seccion: 'familias', grupo: 'familia' },
+  { nombre: 'Familia Yaritza',       pases: 5, seccion: 'familias', grupo: 'familia', miembros: ['Yaha', 'Ismaylin', 'Darlyn', 'María', 'Yaritza'] },
+  { nombre: 'Familia Juana',         pases: 3, seccion: 'familias', grupo: 'familia', miembros: ['Wilman', 'Yerlenis', 'Juana'] },
+  { nombre: 'William y Lidia',       pases: 2, seccion: 'familias', grupo: 'familia' },
+  { nombre: 'Omell',                 pases: 1, seccion: 'familias', grupo: 'familia' },
 
-  { nombre: 'Rosa Iris',             pases: 1, seccion: 'individuales' },
-  { nombre: 'Rosanny',               pases: 1, seccion: 'individuales' },
-  { nombre: 'Isael',                 pases: 1, seccion: 'individuales' },
-  { nombre: 'Nathanael',             pases: 1, seccion: 'individuales' },
-  { nombre: 'Génesis',               pases: 1, seccion: 'individuales' },
-  { nombre: 'Gris Mairy',            pases: 1, seccion: 'individuales' },
-  { nombre: 'Joel',                  pases: 2, seccion: 'individuales' }
+  { nombre: 'Rosa Iris',             pases: 1, seccion: 'individuales', grupo: 'amigo' },
+  { nombre: 'Rosanny',               pases: 1, seccion: 'individuales', grupo: 'amigo' },
+  { nombre: 'Isael',                 pases: 1, seccion: 'individuales', grupo: 'amigo' },
+  { nombre: 'Nathanael',             pases: 1, seccion: 'individuales', grupo: 'amigo' },
+  { nombre: 'Génesis',               pases: 1, seccion: 'individuales', grupo: 'amigo' },
+  { nombre: 'Gris Mairy',            pases: 1, seccion: 'individuales', grupo: 'amigo' },
+  { nombre: 'Joel',                  pases: 2, seccion: 'individuales', grupo: 'amigo' }
 ];
 const unirNombres = (arr) => arr.length < 2 ? (arr[0] || '') : arr.slice(0, -1).join(', ') + ' y ' + arr[arr.length - 1];
 const SECCIONES = { familias: 'Familias y parejas', individuales: 'Invitados individuales' };
@@ -214,8 +214,9 @@ function pintarLista(filtro) {
 
   lista.innerHTML = '';
   let seccionActual = null;
+  const variasSecciones = new Set(items.map((i) => i.seccion)).size > 1;
   items.forEach((inv, idx) => {
-    if (inv.seccion && inv.seccion !== seccionActual) {
+    if (variasSecciones && inv.seccion && inv.seccion !== seccionActual) {
       seccionActual = inv.seccion;
       const t = document.createElement('li');
       t.className = 'lista-seccion';
@@ -474,15 +475,15 @@ const EQUIPOS = {
   nino: {
     nombre: 'Team Niño', colores: ['#9fc3e7', '#6f9fcf', '#d8e8f7', '#c9a46a'],
     globos: ['azul', 'estrella-azul', 'corazon-azul', 'confeti-azul'],
-    que: 'Pampers (pañales)', nota: 'Como apuestas por niño, tu aporte para el bebé son pañales.',
-    icono: '<svg viewBox="0 0 32 32"><path d="M4 9h24v5c0 6-5 11-12 11S4 20 4 14V9Z"/><path d="M4 13c3 0 5 2 6 5M28 13c-3 0-5 2-6 5"/><path d="M9 9V7h14v2"/></svg>',
+    que: 'Toallitas húmedas', nota: 'Como apuestas por niño, tu aporte para el bebé son toallitas húmedas.',
+    icono: '<svg viewBox="0 0 32 32"><rect x="5" y="9" width="22" height="16" rx="4"/><path d="M12 9c0-2.5 1.8-4 4-4s4 1.5 4 4"/><path d="M11 17h10"/></svg>',
     vest: 'Tú vienes de blanco con un toque azul 💙'
   },
   nina: {
     nombre: 'Team Niña', colores: ['#f2b5c0', '#df8b9c', '#fbe0e6', '#c9a46a'],
     globos: ['rosa', 'estrella-rosa', 'corazon-rosa', 'confeti-rosa'],
-    que: 'Toallitas húmedas', nota: 'Como apuestas por niña, tu aporte para el bebé son toallitas húmedas.',
-    icono: '<svg viewBox="0 0 32 32"><rect x="5" y="9" width="22" height="16" rx="4"/><path d="M12 9c0-2.5 1.8-4 4-4s4 1.5 4 4"/><path d="M11 17h10"/></svg>',
+    que: 'Pampers (pañales)', nota: 'Como apuestas por niña, tu aporte para el bebé son pañales.',
+    icono: '<svg viewBox="0 0 32 32"><path d="M4 9h24v5c0 6-5 11-12 11S4 20 4 14V9Z"/><path d="M4 13c3 0 5 2 6 5M28 13c-3 0-5 2-6 5"/><path d="M9 9V7h14v2"/></svg>',
     vest: 'Tú vienes de blanco con un toque rosado 💗'
   },
   sorpresa: {

@@ -1010,6 +1010,18 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .rsvp-icono svg { width: 50px; height: 50px; fill: none; stroke: var(--dorado-osc); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .btn-wa { max-width: 340px; }
+.nota-cupo {
+  max-width: 34ch;
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--tinta);
+  text-wrap: balance;
+  padding-top: 18px;
+  border-top: 1px solid rgba(176, 141, 87, .35);
+}
+.nota-cupo span { display: block; margin-top: 6px; color: var(--dorado-osc); font-weight: 600; }
 
 /* ---------- Pie ---------- */
 .pie { text-align: center; padding: 40px 20px calc(110px + env(safe-area-inset-bottom)); }
