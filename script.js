@@ -9,6 +9,8 @@
    seccion: 'familias', grupo: 'familia' o 'individuales' (títulos en la lista).
    miembros: integrantes; al tocar la familia se abre y cada quien elige su nombre. */
 const INVITADOS = [
+  { nombre: 'Wislenia',              pases: 1, seccion: 'familias', grupo: 'familia' },
+  { nombre: 'Leudy',                 pases: 1, seccion: 'familias', grupo: 'familia' },
   { nombre: 'Familia Antinol',       pases: 4, seccion: 'familias', grupo: 'familia', miembros: ['Doña Dulce', 'Mildred', 'Ruthdeliz', 'Antinol'] },
   { nombre: 'Familia Kervis',        pases: 4, seccion: 'familias', grupo: 'familia', miembros: ['Iris', 'Keven', 'Kevin', 'Kervis'] },
   { nombre: 'Christopher y Keiry',   pases: 2, seccion: 'familias', grupo: 'familia' },
