@@ -8,8 +8,8 @@
   --papel: #fbf8f2;
   --dorado: #b08d57;
   --dorado-osc: #8a6a3c;
-  --tinta: #5a4a3b;
-  --tinta-suave: #8b7a68;
+  --tinta: #4e3f31;
+  --tinta-suave: #6b5a48;
   --azul: #9fc3e7;
   --azul-osc: #6f9fcf;
   --rosa: #f2b5c0;
@@ -32,6 +32,7 @@ body {
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
   font-variant-numeric: lining-nums;
+  text-shadow: 0 1px 2px rgba(255, 253, 248, .75);
   -webkit-tap-highlight-color: transparent;
 }
 body.puede-scroll { overflow-y: auto; overflow-x: hidden; }
@@ -112,7 +113,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   white-space: nowrap;
   font-family: var(--f-serif);
   font-style: italic;
-  font-size: clamp(17px, 2.6vh, 22px);
+  font-size: clamp(19.5px, 3vh, 25.3px);
   color: var(--dorado-osc);
   letter-spacing: .02em;
   padding: 6px 18px;
@@ -207,7 +208,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .padres-video.visible { opacity: 1; transform: translate(-50%, 0); filter: blur(0); }
 .pv-eyebrow {
   font-family: var(--f-sans);
-  font-size: clamp(10px, 1.4vh, 12px);
+  font-size: clamp(11.5px, 1.6vh, 13.8px);
   font-weight: 500;
   letter-spacing: .32em;
   text-transform: uppercase;
@@ -263,7 +264,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .carta-eyebrow {
   font-family: var(--f-sans);
-  font-size: clamp(10px, 1.35vh, 12px);
+  font-size: clamp(11.5px, 1.6vh, 13.8px);
   letter-spacing: .32em;
   text-transform: uppercase;
   color: var(--tinta-suave);
@@ -281,7 +282,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .carta-sub {
   font-family: var(--f-serif);
   font-style: italic;
-  font-size: clamp(16px, 2.2vh, 20px);
+  font-size: clamp(18.4px, 2.5vh, 23px);
   color: var(--tinta-suave);
   margin-top: .2vh;
 }
@@ -293,7 +294,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .carta-pregunta {
   font-family: var(--f-serif);
-  font-size: clamp(17px, 2.4vh, 22px);
+  font-size: clamp(19.5px, 2.8vh, 25.3px);
   line-height: 1.35;
   color: var(--tinta);
 }
@@ -311,7 +312,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   padding: clamp(12px, 1.8vh, 16px) 14px;
   border-radius: 999px;
   font-family: var(--f-sans);
-  font-size: clamp(13px, 1.7vh, 15px);
+  font-size: clamp(14.9px, 2vh, 17.2px);
   font-weight: 500;
   letter-spacing: .06em;
   color: var(--tinta);
@@ -343,7 +344,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   flex: 1; min-width: 0;
   border: 0; outline: 0; background: transparent;
   font-family: var(--f-sans);
-  font-size: 16px; /* evita zoom en iPhone */
+  font-size: 18.4px; /* evita zoom en iPhone */
   color: var(--tinta);
 }
 .buscador input::placeholder { color: #b3a594; }
@@ -364,7 +365,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .lista-nombres li + li { margin-top: 6px; }
 .lista-seccion {
   font-family: var(--f-sans);
-  font-size: 10px;
+  font-size: 11.5px;
   letter-spacing: .26em;
   text-transform: uppercase;
   color: var(--dorado);
@@ -395,7 +396,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border-radius: 12px;
   text-align: left;
   font-family: var(--f-serif);
-  font-size: clamp(16px, 2.2vh, 19px);
+  font-size: clamp(18.4px, 2.5vh, 21.8px);
   font-weight: 500;
   color: var(--tinta);
   background: linear-gradient(110deg, rgba(234, 242, 250, .9), rgba(251, 246, 238, .9) 50%, rgba(251, 233, 237, .9));
@@ -407,8 +408,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .miembro-btn:active { transform: scale(.98); }
 .miembro-btn.elegido { background: #fff; border-color: var(--dorado); box-shadow: 0 0 0 3px rgba(176, 141, 87, .18); }
 .m-punto { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--azul), var(--rosa)); flex: none; }
-.nb-miembros { font-family: var(--f-serif); font-style: italic; font-size: 14.5px; font-weight: 400; color: var(--tinta); margin-top: 2px; }
-.nb-pases { font-family: var(--f-sans); font-size: 11px; font-weight: 400; color: var(--tinta-suave); margin-top: 2px; }
+.nb-miembros { font-family: var(--f-serif); font-style: italic; font-size: 16.7px; font-weight: 400; color: var(--tinta); margin-top: 2px; }
+.nb-pases { font-family: var(--f-sans); font-size: 12.6px; font-weight: 400; color: var(--tinta-suave); margin-top: 2px; }
 .nombre-btn {
   display: flex; align-items: center; gap: 10px;
   width: 100%;
@@ -416,7 +417,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border-radius: 14px;
   text-align: left;
   font-family: var(--f-serif);
-  font-size: clamp(17px, 2.3vh, 20px);
+  font-size: clamp(19.5px, 2.6vh, 23px);
   font-weight: 500;
   color: var(--tinta);
   background: rgba(255, 255, 255, .55);
@@ -431,7 +432,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   display: grid; place-items: center;
   border-radius: 50%;
   font-family: var(--f-sans);
-  font-size: 12px; font-weight: 600;
+  font-size: 13.8px; font-weight: 600;
   color: #fff;
 }
 .lista-nombres li:nth-child(odd)  .ini { background: linear-gradient(135deg, var(--azul), var(--azul-osc)); }
@@ -443,7 +444,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .sin-resultados { font-family: var(--f-serif); font-style: italic; color: var(--tinta-suave); margin-top: 2vh; }
 .btn-volver {
   margin-top: .8vh;
-  font-size: 12px;
+  font-size: 13.8px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--tinta-suave);
@@ -535,7 +536,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .bv-nombre {
   font-family: var(--f-sans);
-  font-size: 13px;
+  font-size: 14.9px;
   font-weight: 500;
   letter-spacing: .3em;
   text-transform: uppercase;
@@ -586,13 +587,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .bv-baby {
   font-family: var(--f-serif);
   font-weight: 600;
-  font-size: clamp(15px, 4vw, 19px);
+  font-size: clamp(17.2px, 4.6vw, 21.8px);
   letter-spacing: .24em;
   text-transform: uppercase;
   color: var(--dorado-osc);
 }
-.corazon-azul { color: var(--azul-osc); font-size: 14px; }
-.corazon-rosa { color: var(--rosa-osc); font-size: 14px; }
+.corazon-azul { color: var(--azul-osc); font-size: 16.1px; }
+.corazon-rosa { color: var(--rosa-osc); font-size: 16.1px; }
 .activa .bv-nombre { animation: aparecer 1s ease .2s forwards; }
 .bv-miembros { font-family: var(--f-serif); font-style: italic; font-size: 21px; font-weight: 500; color: var(--tinta); margin: -8px 0 20px; opacity: 0; }
 .activa .bv-miembros { animation: aparecer 1s ease .45s forwards; }
@@ -624,11 +625,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .eyebrow {
   font-family: var(--f-sans);
-  font-size: 11px;
+  font-size: 12.6px;
   font-weight: 500;
   letter-spacing: .34em;
   text-transform: uppercase;
-  color: var(--dorado);
+  color: var(--dorado-osc);
 }
 .t-azul { color: var(--azul-osc); font-weight: 600; }
 .t-rosa { color: var(--rosa-osc); font-weight: 600; }
@@ -688,7 +689,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .fp-lado {
   font-family: var(--f-sans);
-  font-size: 11px;
+  font-size: 12.6px;
   letter-spacing: .26em;
   text-transform: uppercase;
   color: var(--tinta-suave);
@@ -697,11 +698,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border-bottom: 1px solid rgba(176, 141, 87, .55);
 }
 .fp-dia { font-family: var(--f-serif); font-weight: 500; font-size: 64px; line-height: 1; color: var(--dorado); }
-.fp-anio { font-family: var(--f-sans); font-size: 13px; letter-spacing: .4em; color: var(--tinta-suave); margin-top: 6px; }
+.fp-anio { font-family: var(--f-sans); font-size: 14.9px; letter-spacing: .4em; color: var(--tinta-suave); margin-top: 6px; }
 .portada-baby {
   font-family: var(--f-serif);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 17.2px;
   letter-spacing: .26em;
   text-transform: uppercase;
   color: var(--dorado-osc);
@@ -709,7 +710,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 
 .portada-padres { display: flex; flex-direction: column; align-items: center; margin-top: 22px; }
-.pp-eyebrow { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--tinta-suave); }
+.pp-eyebrow { font-size: 12.6px; letter-spacing: .3em; text-transform: uppercase; color: var(--tinta-suave); }
 .pp-nombres { font-family: var(--f-script); font-weight: 600; font-size: clamp(32px, 9vw, 42px); line-height: 1.15; color: var(--dorado); }
 .deco { position: absolute; z-index: 1; pointer-events: none; height: auto; filter: drop-shadow(0 10px 16px rgba(90, 74, 59, .14)); }
 .deco-1 { width: clamp(84px, 24vw, 140px); top: 4%;  left: -4%;  animation: mecer 6s ease-in-out infinite; }
@@ -771,7 +772,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   box-shadow: 0 10px 24px rgba(90, 74, 59, .06);
 }
 .c-num { font-family: var(--f-serif); font-weight: 500; font-size: clamp(34px, 9.5vw, 46px); line-height: 1; color: var(--dorado-osc); font-variant-numeric: tabular-nums lining-nums; }
-.c-lbl { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--tinta-suave); }
+.c-lbl { font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--tinta-suave); }
 .conteo-fin { font-family: var(--f-serif); font-size: 24px; margin-top: 20px; color: var(--tinta); }
 
 /* ---------- Detalles ---------- */
@@ -785,9 +786,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .detalle-ancho { grid-column: 1 / -1; }
 .detalle svg { width: 26px; height: 26px; fill: none; stroke: var(--dorado); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 4px; }
-.detalle h3 { font-family: var(--f-sans); font-weight: 500; font-size: 10.5px; letter-spacing: .3em; text-transform: uppercase; color: var(--tinta-suave); }
+.detalle h3 { font-family: var(--f-sans); font-weight: 500; font-size: 12.1px; letter-spacing: .3em; text-transform: uppercase; color: var(--tinta-suave); }
 .d-grande { font-family: var(--f-serif); font-weight: 500; font-size: 27px; color: var(--dorado-osc); line-height: 1.15; margin-top: 2px; }
-.detalle p:not(.d-grande) { font-size: 14px; color: var(--tinta); line-height: 1.45; }
+.detalle p:not(.d-grande) { font-size: 16.1px; color: var(--tinta); line-height: 1.45; }
 .detalle .btn { margin-top: 12px; }
 
 .btn {
@@ -795,7 +796,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   padding: 13px 24px;
   border-radius: 999px;
   font-family: var(--f-sans);
-  font-size: 13px; font-weight: 500;
+  font-size: 14.9px; font-weight: 500;
   letter-spacing: .08em;
   text-decoration: none;
   transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
@@ -803,10 +804,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .btn-linea { color: var(--dorado-osc); border: 1px solid rgba(176, 141, 87, .6); background: rgba(255, 255, 255, .4); margin-top: 20px; }
 .btn-linea:hover { background: #fff; }
-.btn-lleno { width: 100%; color: #fff; background: linear-gradient(135deg, #c3a06a, var(--dorado-osc)); box-shadow: 0 10px 22px rgba(138, 106, 60, .28); padding: 16px 24px; font-size: 14px; }
+.btn-lleno { width: 100%; color: #fff; background: linear-gradient(135deg, #c3a06a, var(--dorado-osc)); box-shadow: 0 10px 22px rgba(138, 106, 60, .28); padding: 16px 24px; font-size: 16.1px; }
 .btn-lleno:disabled { opacity: .6; }
 .btn:active { transform: scale(.97); }
-.btn-texto { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-suave); text-decoration: underline; text-underline-offset: 4px; padding: 10px; margin-top: 8px; }
+.btn-texto { font-size: 13.8px; letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-suave); text-decoration: underline; text-underline-offset: 4px; padding: 10px; margin-top: 8px; }
 :focus-visible { outline: 2px solid var(--dorado); outline-offset: 3px; }
 
 /* ---------- Dinámica ---------- */
@@ -822,7 +823,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .equipo img { width: 64px; height: 84px; object-fit: contain; margin-bottom: 6px; filter: drop-shadow(0 6px 10px rgba(90, 74, 59, .14)); transition: transform .4s cubic-bezier(.3, 1.6, .5, 1); }
 .equipo:hover img { transform: translateY(-5px) rotate(-4deg); }
 .eq-nombre { font-family: var(--f-serif); font-weight: 600; font-size: 21px; line-height: 1.15; }
-.eq-sub { font-size: 12px; color: var(--tinta-suave); }
+.eq-sub { font-size: 13.8px; color: var(--tinta-suave); }
 .equipo-nino { background: linear-gradient(160deg, #eef5fc, #dbe9f7); color: #44698f; border-color: rgba(111, 159, 207, .35); }
 .equipo-nina { background: linear-gradient(160deg, #fdf0f2, #f8dce2); color: #93495b; border-color: rgba(223, 139, 156, .35); }
 .equipo-sorpresa {
@@ -845,7 +846,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   position: absolute; top: 10px; right: 12px;
   width: 22px; height: 22px; border-radius: 50%;
   display: grid; place-items: center;
-  font-size: 12px; color: #fff; background: var(--dorado);
+  font-size: 13.8px; color: #fff; background: var(--dorado);
 }
 .equipos.votado .equipo:not(.elegido) { opacity: .55; }
 
@@ -871,13 +872,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .m-azul, .m-rosa { height: 100%; transition: width 1.2s cubic-bezier(.2, .8, .2, 1); }
 .m-azul { background: linear-gradient(90deg, #8fb7e0, #b4d1ee); }
 .m-rosa { background: linear-gradient(90deg, #f6c4ce, #e897a9); }
-.m-filas { display: flex; justify-content: space-between; gap: 8px; margin-top: 10px; font-size: 13px; }
+.m-filas { display: flex; justify-content: space-between; gap: 8px; margin-top: 10px; font-size: 14.9px; }
 .m-dato { font-variant-numeric: tabular-nums; }
 .m-dato b { font-weight: 600; }
 .m-dato i { font-style: normal; opacity: .8; }
 .m-dato-azul { color: #44698f; }
 .m-dato-rosa { color: #93495b; }
-.m-sorpresa { margin-top: 10px; font-size: 13px; color: var(--dorado-osc); }
+.m-sorpresa { margin-top: 10px; font-size: 14.9px; color: var(--dorado-osc); }
 .m-sorpresa::before { content: '✨ '; }
 
 .llevar {
@@ -907,8 +908,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .llevar.nina .llevar-icono svg { stroke: var(--rosa-osc); }
 .llevar.sorpresa .llevar-icono svg { stroke: var(--dorado); }
 .llevar-que { font-family: var(--f-serif); font-weight: 600; font-size: 22px; color: var(--tinta); line-height: 1.15; }
-.llevar-nota { font-size: 13px; color: var(--tinta-suave); margin-top: 3px; line-height: 1.4; }
-.llevar-extra { font-family: var(--f-serif); font-size: 17px; line-height: 1.45; color: var(--tinta); margin-top: 14px; padding: 0 6px; }
+.llevar-nota { font-size: 14.9px; color: var(--tinta-suave); margin-top: 3px; line-height: 1.4; }
+.llevar-extra { font-family: var(--f-serif); font-size: 19.5px; line-height: 1.45; color: var(--tinta); margin-top: 14px; padding: 0 6px; }
 .llevar-extra b { color: var(--dorado-osc); }
 
 /* ---------- Bloqueo hasta elegir team ---------- */
@@ -922,7 +923,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   padding: 11px 20px;
   border-radius: 999px;
   font-family: var(--f-sans);
-  font-size: 13px; font-weight: 500;
+  font-size: 14.9px; font-weight: 500;
   letter-spacing: .04em;
   white-space: nowrap;
   color: var(--dorado-osc);
@@ -1014,9 +1015,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .vest-nino .vest-toque { background: linear-gradient(135deg, #b4d1ee, var(--azul-osc)); }
 .vest-nina .vest-toque { background: linear-gradient(135deg, #f8cdd5, var(--rosa-osc)); }
 .vest-nombre { font-family: var(--f-serif); font-weight: 600; font-size: 20px; margin-top: 14px; color: var(--tinta); }
-.vest-sub { font-size: 12.5px; color: var(--tinta-suave); margin-top: 2px; }
+.vest-sub { font-size: 14.4px; color: var(--tinta-suave); margin-top: 2px; }
 .vest.tuyo { box-shadow: 0 0 0 2px var(--dorado), 0 14px 26px rgba(90, 74, 59, .12); transform: translateY(-3px); }
-.vest-tuyo { font-family: var(--f-serif); font-style: italic; font-size: 18px; color: var(--dorado-osc); margin-top: 16px; }
+.vest-tuyo { font-family: var(--f-serif); font-style: italic; font-size: 20.7px; color: var(--dorado-osc); margin-top: 16px; }
 
 /* ---------- RSVP ---------- */
 .rsvp {
@@ -1031,7 +1032,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   display: flex; flex-direction: column; gap: 18px;
 }
 .campo { display: flex; flex-direction: column; gap: 8px; border: 0; min-width: 0; }
-.campo label, .campo legend { font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-suave); }
+.campo label, .campo legend { font-size: 13.8px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-suave); }
 .campo legend { margin-bottom: 8px; }
 .opcional { text-transform: none; letter-spacing: 0; font-weight: 400; opacity: .8; }
 .campo input[type="text"], .campo textarea, .contador input {
@@ -1041,12 +1042,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border: 1px solid rgba(176, 141, 87, .4);
   background: var(--papel);
   font-family: var(--f-serif);
-  font-size: 18px;
+  font-size: 20.7px;
   color: var(--tinta);
   outline: none;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
-.campo textarea { font-size: 17px; resize: vertical; min-height: 84px; }
+.campo textarea { font-size: 19.5px; resize: vertical; min-height: 84px; }
 .campo input:focus, .campo textarea:focus { border-color: var(--dorado); box-shadow: 0 0 0 3px rgba(176, 141, 87, .18); }
 .si-no { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .campo .pildora { position: relative; cursor: pointer; text-transform: none; letter-spacing: 0; font-weight: 400; }
@@ -1056,7 +1057,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   padding: 13px 8px;
   border-radius: 999px;
   border: 1px solid rgba(176, 141, 87, .4);
-  font-size: 14px; font-weight: 500;
+  font-size: 16.1px; font-weight: 500;
   color: var(--tinta);
   background: var(--papel);
   transition: background .2s ease, color .2s ease, border-color .2s ease;
@@ -1067,7 +1068,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .contador input { text-align: center; font-family: var(--f-sans); font-size: 20px; font-weight: 600; -moz-appearance: textfield; }
 .contador input::-webkit-outer-spin-button, .contador input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .ct-btn { border-radius: 14px; border: 1px solid rgba(176, 141, 87, .4); background: var(--papel); font-size: 24px; color: var(--dorado-osc); }
-.rsvp-pases { font-family: var(--f-serif); font-style: italic; font-size: 16px; color: var(--dorado-osc); margin-top: -2px; }
+.rsvp-pases { font-family: var(--f-serif); font-style: italic; font-size: 18.4px; color: var(--dorado-osc); margin-top: -2px; }
 #rsvpNombre[readonly] { background: #f6f1e8; }
 .aviso-cupos {
   display: flex; align-items: flex-start; gap: 10px;
@@ -1077,9 +1078,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border: 1px dashed rgba(176, 141, 87, .55);
 }
 .aviso-cupos svg { flex: none; width: 20px; height: 20px; margin-top: 1px; fill: none; stroke: var(--dorado); stroke-width: 1.7; stroke-linecap: round; }
-.aviso-cupos p { font-family: var(--f-serif); font-size: 16.5px; line-height: 1.4; color: var(--tinta); }
+.aviso-cupos p { font-family: var(--f-serif); font-size: 19px; line-height: 1.4; color: var(--tinta); }
 .aviso-cupos b { color: var(--dorado-osc); font-weight: 600; }
-.rsvp-estado { min-height: 1.2em; font-size: 14px; text-align: center; color: var(--tinta-suave); }
+.rsvp-estado { min-height: 1.2em; font-size: 16.1px; text-align: center; color: var(--tinta-suave); }
 .rsvp-estado.error { color: #b04a4a; }
 .rsvp-gracias {
   width: 100%;
@@ -1093,7 +1094,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .rsvp-gracias img { width: 70px; height: auto; }
 .rsvp-gracias h3 { font-family: var(--f-script); font-weight: 600; font-size: 34px; color: var(--dorado); margin-top: 6px; }
-.rsvp-gracias p { font-family: var(--f-serif); font-size: 18px; color: var(--tinta); margin-top: 4px; }
+.rsvp-gracias p { font-family: var(--f-serif); font-size: 20.7px; color: var(--tinta); margin-top: 4px; }
 
 .rsvp-simple { display: flex; flex-direction: column; align-items: center; gap: 22px; width: 100%; margin-top: 26px; }
 .rsvp-icono {
@@ -1117,7 +1118,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   border: 1px solid rgba(176, 141, 87, .3);
   font-family: var(--f-serif);
   font-style: italic;
-  font-size: 16.5px;
+  font-size: 19px;
   line-height: 1.45;
   color: var(--tinta);
 }
@@ -1127,7 +1128,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .pie { text-align: center; padding: 40px 20px calc(110px + env(safe-area-inset-bottom)); }
 .pie-firma { font-family: var(--f-script); font-weight: 600; font-size: 30px; color: var(--dorado); }
 .pie .portada-baby { margin-top: 6px; }
-.pie-corazones { margin-top: 12px; font-size: 18px; letter-spacing: .3em; }
+.pie-corazones { margin-top: 12px; font-size: 20.7px; letter-spacing: .3em; }
 
 @media (min-width: 700px) {
   .seccion { padding-top: 80px; }
